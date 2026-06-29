@@ -13,7 +13,7 @@ beta: run it on your own machine and tell me what's useful and what's confusing.
 One line — no Python setup needed, `uv` fetches a matching interpreter:
 
 ```bash
-uv tool install "https://github.com/Ryan-Thurman/Ryan-Thurman/rct-dist/releases/download/v0.0.1/ryans_context_toolbelt-0.0.1-cp313-cp313-macosx_14_0_arm64.whl"
+uv tool install "https://github.com/Ryan-Thurman/rct-dist/releases/download/v0.0.1/ryans_context_toolbelt-0.0.1-cp313-cp313-macosx_14_0_arm64.whl"
 ```
 
 > Need `uv`? `curl -LsSf https://astral.sh/uv/install.sh | sh`
