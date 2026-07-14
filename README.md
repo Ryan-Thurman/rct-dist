@@ -1,9 +1,5 @@
 # RCT — beta
 
-> Template for the **public distribution repo**'s README. Copy this into that repo
-> alongside the release wheels; fill in the `<…>` release URL. (This file lives here
-> in the source repo only as the maintained source of truth.)
-
 RCT builds a queryable graph of your codebase — files, functions, classes, calls,
 routes, constraints — and serves it as a dashboard you can explore. This is a private
 beta: run it on your own machine and tell me what's useful and what's confusing.
@@ -13,7 +9,7 @@ beta: run it on your own machine and tell me what's useful and what's confusing.
 One line — no Python setup needed, `uv` fetches a matching interpreter:
 
 ```bash
-uv tool install "https://github.com/Ryan-Thurman/rct-dist/releases/download/v0.0.2/ryans_context_toolbelt-0.0.2-cp313-cp313-macosx_14_0_arm64.whl"
+uv tool install "https://github.com/Ryan-Thurman/rct-dist/releases/download/v0.1.0/ryans_context_toolbelt-0.1.0-cp313-cp313-macosx_14_0_arm64.whl"
 ```
 
 > Need `uv`? `curl -LsSf https://astral.sh/uv/install.sh | sh`
