@@ -9,11 +9,15 @@ beta: run it on your own machine and tell me what's useful and what's confusing.
 One line — no Python setup needed, `uv` fetches a matching interpreter:
 
 ```bash
-uv tool install "https://github.com/Ryan-Thurman/rct-dist/releases/download/v0.1.2/ryans_context_toolbelt-0.1.2-cp313-cp313-macosx_14_0_arm64.whl"
+uv tool install --python 3.13 "ryans-context-toolbelt[langs] @ https://github.com/Ryan-Thurman/rct-dist/releases/download/v0.3.0/ryans_context_toolbelt-0.3.0-cp313-cp313-macosx_14_0_arm64.whl"
 ```
+
+`--python 3.13` matches the wheel; `[langs]` adds the Go/Rust/Java/Ruby parsers (without it those files are skipped).
 
 > Need `uv`? `curl -LsSf https://astral.sh/uv/install.sh | sh`
 > Update later: re-run the command above with the new release URL plus `--reinstall`.
+> After upgrading, re-run `rct index` on your repos. A new release can change what is
+> parsed, and the first index after an upgrade does a full re-parse.
 
 ## Use it
 
@@ -25,6 +29,15 @@ rct dashboard                    # serve the explorer
 Then open the printed URL (default <http://localhost:8000>). Start on **Overview**, try
 the **Graph** and **Layers** views, search in the left rail, and click a node to inspect
 its callers/callees/usages/constraints.
+
+## Use it from Cursor
+
+```bash
+cd /path/to/your/repo
+rct wire cursor --hooks          # MCP tools + rule + metrics hooks
+```
+
+Reload Cursor afterwards. It reads those files when a session starts.
 
 ## Optional: semantic search
 
@@ -46,7 +59,7 @@ Without this, the Semantic search toggle quietly falls back to lexical and tells
 |---|---|
 | Dashboard, graph, lexical search | nothing — works offline |
 | Semantic search | `rct fetch-model` (one-time, no Hugging Face) |
-| AI prose summaries | an LLM API key (optional) |
+| AI prose summaries | optional: a Cursor/Claude/Codex CLI seat (`rct summarize --cli …`) or an LLM API key |
 
 ## Feedback
 
