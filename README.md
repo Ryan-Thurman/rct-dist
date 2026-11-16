@@ -9,7 +9,7 @@ beta: run it on your own machine and tell me what's useful and what's confusing.
 One line — no Python setup needed, `uv` fetches a matching interpreter:
 
 ```bash
-uv tool install --python 3.13 "ryans-context-toolbelt[langs] @ https://github.com/Ryan-Thurman/rct-dist/releases/download/v0.3.0/ryans_context_toolbelt-0.3.0-cp313-cp313-macosx_14_0_arm64.whl"
+uv tool install --python 3.13 "ryans-context-toolbelt[langs] @ https://github.com/Ryan-Thurman/rct-dist/releases/download/v0.4.0/ryans_context_toolbelt-0.4.0-cp313-cp313-macosx_14_0_arm64.whl"
 ```
 
 `--python 3.13` matches the wheel; `[langs]` adds the Go/Rust/Java/Ruby parsers (without it those files are skipped).
@@ -39,26 +39,11 @@ rct wire cursor --hooks          # MCP tools + rule + metrics hooks
 
 Reload Cursor afterwards. It reads those files when a session starts.
 
-## Optional: semantic search
-
-Lexical (keyword) search and the whole dashboard work out of the box. To also get
-**semantic** search (find code by meaning, not just keywords), fetch the embedding
-model once — it comes from a dedicated repo over plain HTTPS, **no Hugging Face**, so it
-works on locked-down networks:
-
-```bash
-rct fetch-model        # ~580MB, one time; auto-detects MLX (Apple Silicon) / Ollama
-rct index --embed /path/to/your/repo   # re-index with embeddings
-```
-
-Without this, the Semantic search toggle quietly falls back to lexical and tells you so.
-
 ## What needs what
 
 | Feature | Requirement |
 |---|---|
-| Dashboard, graph, lexical search | nothing — works offline |
-| Semantic search | `rct fetch-model` (one-time, no Hugging Face) |
+| Dashboard, graph, search | nothing — works offline |
 | AI prose summaries | optional: a Cursor/Claude/Codex CLI seat (`rct summarize --cli …`) or an LLM API key |
 
 ## Feedback
