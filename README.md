@@ -9,7 +9,7 @@ beta: run it on your own machine and tell me what's useful and what's confusing.
 One line — no Python setup needed, `uv` fetches a matching interpreter:
 
 ```bash
-uv tool install --python 3.13 "ryans-context-toolbelt[langs] @ https://github.com/Ryan-Thurman/rct-dist/releases/download/v0.4.0/ryans_context_toolbelt-0.4.0-cp313-cp313-macosx_14_0_arm64.whl"
+uv tool install --python 3.13 "ryans-context-toolbelt[langs] @ https://github.com/Ryan-Thurman/rct-dist/releases/download/v0.5.0/ryans_context_toolbelt-0.5.0-cp313-cp313-macosx_14_0_arm64.whl"
 ```
 
 `--python 3.13` matches the wheel; `[langs]` adds the Go/Rust/Java/Ruby parsers (without it those files are skipped).
@@ -30,6 +30,9 @@ Then open the printed URL (default <http://localhost:8000>). Start on **Overview
 the **Graph** and **Layers** views, search in the left rail, and click a node to inspect
 its callers/callees/usages/constraints.
 
+The **Run** view reindexes, measures CRAP and coverage, runs the security scan, code sweep
+and lint, and builds the **Scorecard** (under *Assess*) from the dashboard, one click each.
+
 ## Use it from Cursor
 
 ```bash
@@ -44,6 +47,7 @@ Reload Cursor afterwards. It reads those files when a session starts.
 | Feature | Requirement |
 |---|---|
 | Dashboard, graph, search | nothing — works offline |
+| Security scan, code sweep, lint, scorecard | a one-time `rct scanners install` (downloads pinned scanners, their rules and trivy's ~1.8 GB vulnerability database) |
 | AI prose summaries | optional: a Cursor/Claude/Codex CLI seat (`rct summarize --cli …`) or an LLM API key |
 
 ## Feedback
